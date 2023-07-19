@@ -77,6 +77,25 @@ def password_info(request,pk):
     password=PasswordEntry.objects.get(id=pk)
     context={'password':password}
     return render(request,'base/password_info.html',context)
+
+@login_required(login_url='login')
+def delete_password(request,pk):
+    password=PasswordEntry.objects.get(id=pk)
+    if request.method=='POST':
+        password.delete()
+        return redirect('home',pk=request.user.id)
+    context={'password':password}
+    return render(request,'base/delete_password.html',context)
+
+@login_required(login_url='login')
+def delete_profile(request,pk):
+    user=User.objects.get(id=pk)
+    if request.method=='POST':
+        user.delete()
+        return redirect('login')
+    context={'user':user}
+    return render(request,'base/delete_profile.html',context)
+
     
     
 
