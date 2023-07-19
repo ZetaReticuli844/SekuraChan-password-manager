@@ -1,0 +1,86 @@
+{% extends 'main.html'%}
+{% block content %}
+
+<!-- home.html -->
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+<head>
+  <!-- Include necessary CSS and JavaScript files -->
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <!-- Example of including Bootstrap JavaScript and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Example of including Bootstrap CSS and JavaScript -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/button1.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+</head>
+<body>
+  <!-- Your page content -->
+ 
+  <!-- Example button to trigger the modal -->
+  
+  <!-- Include the script block to handle the button click and show the modal -->
+  <script>
+    $(document).ready(function() {
+      $('#createButton').click(function() {
+        $('#myModal').modal('show');  // Show the modal
+      });
+    });
+  </script>
+
+  <!-- modal structure -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Add Password</h4>
+        </div>
+        <div class="modal-body">
+          <!-- Django form goes here -->
+          <form method="POST" action="{% url 'home' user.id %}">
+            {% csrf_token %}
+            <div>
+              <input type="text" name="{{ form.website.name }}" placeholder="Website" id="{{ form.website.id_for_label }}" class="my-input">
+          </div>
+          <br>
+          <div>
+              <input type="text" name="{{ form.website_user_name.name }}" placeholder="Website User Name" id="{{ form.website_user_name.id_for_label }}" class="my-input">
+          </div>
+          <div>
+            <br>
+              <input type="password" name="{{ form.password.name }}" placeholder="Password" id="{{ form.password.id_for_label }}" class="my-input">
+          </div>
+          <br>
+          <div>
+              <textarea name="{{ form.additional_info.name }}" placeholder="Additional Information" id="{{ form.additional_info.id_for_label }}" class="my-input"></textarea>
+          </div>
+          <br>
+            <button type="submit" class="btn btn-primary" id="create-button">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+      {% include 'base/password_display.html' %}
+</div>
+    <script>
+        $(document).ready(function() {
+          $('#createButton').click(function() {
+            $('#myModal').modal('show');  // Show the modal
+          });
+        });
+      </script>
+
+</body>
+</html>
+
+
+
+{% endblock %}

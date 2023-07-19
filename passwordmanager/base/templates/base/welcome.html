@@ -1,0 +1,17 @@
+{% extends 'main.html'%}
+{% block content%}
+
+<div class="welcome-container">
+    <div class="centered-text">
+<h1 style="color:white">Welcome to  to  SekuraChan </h1>
+<p style="color:white"> SekuraChan will  store all your pass words securely in one place , so you don't have to memorize them. </p>
+
+<div>
+  <a href="{% url 'register'%}">
+    <button type="button" name="button" class="button-78">Sign Up</button>
+  </a>
+</div>
+</div>
+</div>
+
+{% endblock %}
