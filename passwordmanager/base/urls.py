@@ -10,7 +10,7 @@ urlpatterns = [
     path('password_display/',views.password_display,name='password_display'),
     path('password_info/<int:pk>/',views.password_info,name='password_info'),
     path('delete_password/<int:pk>/',views.delete_password,name='delete_password'),
-    path('delete_profile/<int:pk>/',views.update_password,name='delete_profile'),
+    path('delete_profile/<int:pk>/',views.delete_profile,name='delete_profile'),
     
     
 ]
