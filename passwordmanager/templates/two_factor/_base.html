@@ -1,0 +1,19 @@
+{%extends 'main.html'%}
+{%block stuff%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+
+{%load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  {% block extra_media %}{% endblock %}
+
+<div class="form-container">
+  {% block content_wrapper %}
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </div> 
+  {% endblock %}
+{%endblock%}

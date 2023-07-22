@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
+from two_factor.urls import urlpatterns as tf_urls
+from django.urls import include
 
 urlpatterns = [
     path('',views.welcome,name='welcome'),
     path('register/',views.registerPage,name='register'),
+    path(r'', include(tf_urls)),
     path('login/',views.loginPage,name='login'),
     path('logout/',views.logoutUser,name='logout'),
     path('home/<int:pk>/',views.home,name='home'),

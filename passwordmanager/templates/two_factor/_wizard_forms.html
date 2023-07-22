@@ -1,0 +1,21 @@
+{% load my_custom_filters %}
+{% load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<div clas="form-auth">
+<table class="mb-3">
+  {{ wizard.management_form }}
+
+  {% for field in wizard.form %}
+    {% if field.is_hidden %}
+   
+    {% else %}
+        <label class="col-sm-2 col-form-label">{{ field.label_tag }}</label>
+        {{ field|add_classes:'form-control'}}
+        {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+        {% endif %}
+    {% endif %}
+  {% endfor %}
+
+</table>
+</div>
