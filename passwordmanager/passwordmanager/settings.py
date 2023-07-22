@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_email',  # <- if you want email capability.
     'two_factor',
+     'two_factor.plugins.phonenumber',
     'base.templatetags.my_custom_filters'
 ]
 AUTH_USER_MODEL = 'base.User'
