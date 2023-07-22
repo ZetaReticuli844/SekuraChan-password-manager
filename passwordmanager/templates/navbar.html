@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark">
-      <a style="font-family:Pokemon Solid; color:white" class="navbar-brand" href="url">
+      <a style="font-family:Pokemon Solid; color:white" class="navbar-brand" href="">
           <img src="https://th.bing.com/th/id/OIG.H7Kpzgw3drgn9GOWqnBX?pid=ImgGn" width="30" height="30" class="d-inline-block align-top" alt="" style="border-radius:50%;"> Sekura Chan
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,10 +8,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-              </li>
+              
               {% if request.user.is_authenticated %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' user.id %}">Home <span class="sr-only">(current)</span></a>
+            </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'two_factor:profile'%}">Two Factor</a>
                   

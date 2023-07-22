@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import User,PasswordEntry
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django_otp.decorators import otp_required
 
 
 
@@ -49,6 +50,7 @@ def welcome(request):
 def home(request, pk):
     user = User.objects.get(id=pk)
     form = PasswordEntryForm(request.POST or None)
+    q=request.GET.get('q') if request.GET.get('q') != None else ''
 
     if request.method == 'POST' and form.is_valid():
         password_data = form.save(commit=False)
@@ -57,7 +59,9 @@ def home(request, pk):
         return redirect('home', pk=user.id)
 
     passwords = PasswordEntry.objects.filter(user=user)
-    context = {'user': user, 'form': form, 'passwords': passwords}
+    search=PasswordEntry.objects.filter(website__icontains=q)
+    
+    context = {'user': user, 'form': form, 'passwords': passwords,'search':search}
     current_user = request.user
 
     if current_user == user:
@@ -72,7 +76,9 @@ def password_display(request):
     context={'password':passwords}
     return render(request,'base/password_display.html',context)
 
-@login_required(login_url='login')       
+
+@login_required(login_url='login')  
+@otp_required     
 def password_info(request,pk):
     password=PasswordEntry.objects.get(id=pk)
     context={'password':password}
