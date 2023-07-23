@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_email',  # <- if you want email capability.
     'two_factor',
      'two_factor.plugins.phonenumber',
-    'base.templatetags.my_custom_filters'
+    'base.templatetags.my_custom_filters',
+    'encrypted_model_fields',
 ]
 AUTH_USER_MODEL = 'base.User'
 MIDDLEWARE = [
@@ -135,3 +136,12 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 LOGIN_URL = 'two_factor:login'
+
+import os
+
+key_file_path = os.path.join(BASE_DIR, 'key.txt')
+with open(key_file_path, 'r') as key_file:
+    FIELD_ENCRYPTION_KEY = key_file.read().strip()
+
+    
+    

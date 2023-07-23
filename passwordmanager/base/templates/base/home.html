@@ -7,12 +7,11 @@
 {% load static %}
 <html>
 <head>
-  <!-- Include necessary CSS and JavaScript files -->
+
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
-  <!-- Example of including Bootstrap JavaScript and jQuery -->
+  <link rel="stylesheet" href="{% static 'css/container.css' %}">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Example of including Bootstrap CSS and JavaScript -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{% static 'css/button1.css'%}">
@@ -68,6 +67,10 @@
     </div>
   </div>
 <div class="container">
+  <form method="GET" action="{% url 'password_display' %}">
+
+  <div> <input type="text" id="search" placeholder="Search for passwords....." class="search" name="q"/> </div>
+  </form>
       {% include 'base/password_display.html' %}
 </div>
     <script>

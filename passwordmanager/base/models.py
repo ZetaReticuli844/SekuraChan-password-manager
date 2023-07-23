@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from encrypted_model_fields.fields import EncryptedCharField
 
 
 class User(AbstractUser):
@@ -15,7 +16,7 @@ class PasswordEntry(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     website = models.CharField(max_length=100)
     website_user_name = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
+    password =EncryptedCharField(max_length=100)
     additional_info = models.CharField(max_length=100)
     def __str__(self):
         return self.website
