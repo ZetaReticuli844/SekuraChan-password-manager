@@ -85,8 +85,13 @@ WSGI_APPLICATION = 'passwordmanager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'SekuraDataBase',
+        'USER':'postgres',
+        'PASSWORD':'y0g@$#10',
+        'HOST':'localhost',
+        'PORT':'5432',
+        
     }
 }
 
