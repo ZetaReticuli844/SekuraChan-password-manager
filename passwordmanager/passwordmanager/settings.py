@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'SekuraDataBase',
         'USER':'postgres',
-        'PASSWORD':'y0g@$#10',
+        'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'5432',
         
