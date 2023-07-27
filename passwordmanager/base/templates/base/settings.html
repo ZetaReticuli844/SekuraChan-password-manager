@@ -3,7 +3,7 @@
       Settings
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSettings">
-      <a class="dropdown-item" href="#">Export passwords</a>
+      <a class="dropdown-item" href="{% url 'export_json' %}">Export passwords</a>
       <a class="dropdown-item" href="{%url 'two_factor:profile'%}">Two Factor</a>
       <a class="dropdown-item" href="{% url 'delete_profile' user.id %}">Delete account</a>
     </div>

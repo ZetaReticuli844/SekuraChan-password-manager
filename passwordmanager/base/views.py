@@ -7,6 +7,7 @@ from .models import User,PasswordEntry
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django_otp.decorators import otp_required
+import json
 
 
 
@@ -109,6 +110,14 @@ def settings(request,pk):
     user=User.objects.get(id=pk)
     context={'user':user}
     return render(request,'base/settings.html',context)
+@otp_required
+def export_json(request):
+    user = request.user
+    password_entries = PasswordEntry.objects.filter(user=user).values()
+    data = list(password_entries)
+    response = HttpResponse(json.dumps(data, indent=2), content_type='application/json')
+    response['Content-Disposition'] = 'attachment; filename="password_entries.json"'
+    return response
     
     
 

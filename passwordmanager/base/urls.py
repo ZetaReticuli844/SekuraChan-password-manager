@@ -15,6 +15,7 @@ urlpatterns = [
     path('password_info/<int:pk>/',views.password_info,name='password_info'),
     path('delete_password/<int:pk>/',views.delete_password,name='delete_password'),
     path('delete_profile/<int:pk>/',views.delete_profile,name='delete_profile'),
+    path('export-json/', views.export_json, name='export_json'),
     
     
 ]
