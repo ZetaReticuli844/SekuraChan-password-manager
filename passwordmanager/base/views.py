@@ -94,6 +94,7 @@ def delete_password(request,pk):
     return render(request,'base/delete_password.html',context)
 
 @login_required(login_url='login')
+@otp_required
 def delete_profile(request,pk):
     user=User.objects.get(id=pk)
     if request.method=='POST':
@@ -102,6 +103,12 @@ def delete_profile(request,pk):
     context={'user':user}
     return render(request,'base/delete_profile.html',context)
 
+
+@login_required(login_url='login')  
+def settings(request,pk):
+    user=User.objects.get(id=pk)
+    context={'user':user}
+    return render(request,'base/settings.html',context)
     
     
 

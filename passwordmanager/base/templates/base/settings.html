@@ -1,0 +1,53 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkSettings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Settings
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkSettings">
+      <a class="dropdown-item" href="#">Export passwords</a>
+      <a class="dropdown-item" href="{%url 'two_factor:profile'%}">Two Factor</a>
+      <a class="dropdown-item" href="{% url 'delete_profile' user.id %}">Delete account</a>
+    </div>
+  </li>
+  <style>
+    .dropdown-menu {
+        
+        backdrop-filter: blur(8px) !important;
+        border:1px solid transparent !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+        background: rgba(0, 0, 0, 0.5)!important;; 
+        backdrop-filter: blur(50px)!important;
+      }
+  
+      .dropdown-item {
+        color: #fff !important;
+        border-radius: 8px !important;
+        padding: 8px 16px !important;
+        transition: background-color 0.3s ease-in-out !important;
+      }
+  
+      .dropdown-item:hover {
+        background-color: purple !important;
+      }
+  
+      .dropdown-item.active,
+      .dropdown-item:active {
+        background-color: purple !important;
+      }
+  
+      .dropdown-item,
+      .dropdown-item:hover,
+      .dropdown-item:active {
+        color: #fff !important;
+      }
+  
+      @media (max-width: 576px) {
+        .dropdown-menu {
+          width: 100% !important;
+          padding: 0 !important;
+          text-align: center !important;
+        }
+        .dropdown-item {
+          display: block !important;
+        }
+      }
+  </style>
