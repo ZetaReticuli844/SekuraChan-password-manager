@@ -40,13 +40,9 @@ Contributions to Sekura Chan are welcome! If you want to contribute, please foll
 - Ensure your code follows the project's coding standards and passes all tests.
 - Submit a pull request with a detailed description of your changes.
 
-## License
-
-Sekura Chan is open-source software licensed under the [MIT License](LICENSE.md). Feel free to use, modify, and distribute it in accordance with the terms of the license.
 
 ## Disclaimer
 
 Sekura Chan is intended for personal use and should not be used to store sensitive information without understanding the risks. The developers are not responsible for any data loss or security breaches that may occur due to improper use of the application.
 
----
-_Your project README.md should include details specific to your project's setup and instructions, such as installation steps and configuration details. Additionally, don't forget to add your actual project logo and ensure the content reflects your application's functionality accurately._
+
