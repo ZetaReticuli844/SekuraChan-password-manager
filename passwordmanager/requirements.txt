@@ -1,0 +1,7 @@
+python==3.11.4
+Django==4.2.3
+django-two-factor-auth
+django-otp
+django-encrypted-model-fields
+psycopg2==2.9.6 
+
