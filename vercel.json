@@ -1,6 +1,6 @@
 {
     "builds": [{
-        "src": "passwordmanager/passwordmanager/wsgi.py",
+        "src": "passwordmanager/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.4" }
     },
@@ -16,7 +16,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "passwordmanager/passwordmanager/wsgi.py"
+            "dest": "passwordmanager/wsgi.py"
         }
     ]
 }
