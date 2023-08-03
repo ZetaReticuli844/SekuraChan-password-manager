@@ -83,15 +83,21 @@ WSGI_APPLICATION = 'passwordmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'SekuraDataBase',
+#         'USER':'yogeshshekhawat',
+#         'PASSWORD':'yogesh10',
+#         'HOST':'database-1.csfjaizjtatp.us-east-1.rds.amazonaws.com',
+#         'PORT':'5432',
+        
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'SekuraDataBase',
-        'USER':'yogeshshekhawat',
-        'PASSWORD':'yogesh10',
-        'HOST':'database-1.csfjaizjtatp.us-east-1.rds.amazonaws.com',
-        'PORT':'5432',
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
